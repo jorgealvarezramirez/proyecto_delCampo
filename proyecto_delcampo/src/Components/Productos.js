@@ -1,9 +1,39 @@
-const Productos = () => {
+import React from "react";
+import Producto from "./Producto";
+import Banano from "../assets/productos/1_Banano.png";
+import Durazno from "../assets/productos/1_Durazno.png";
+import Fresa from "../assets/productos/1_Fresa.png";
+
+const productos = [
+  {
+    id: "1",
+    title: "Banano",
+    image: "1_Banano",
+  },
+  {
+    id: "2",
+    title: "Durazno",
+    image: "1_Durazno",
+  },
+  {
+    id: "3",
+    title: "Fresa",
+    image: "1_Fresa",
+  },
+];
+
+function Productos() {
   return (
-    <div>
-      <h2>Productos</h2>
+    <div className="container d-flex justify-content-center align-items-center h-100 ">
+      <div className="row">
+        {productos.map((producto) => (
+          <div className="col-md-4" key={productos.id}>
+            <Producto title={producto.title} imageSource={producto.image} />
+          </div>
+        ))}
+      </div>
     </div>
   );
-};
+}
 
 export default Productos;
