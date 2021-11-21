@@ -8,17 +8,17 @@ const productos = [
   {
     id: "1",
     title: "Banano",
-    image: "1_Banano",
+    image: "1_Banano.png",
   },
   {
     id: "2",
     title: "Durazno",
-    image: "1_Durazno",
+    image: "1_Durazno.png",
   },
   {
     id: "3",
     title: "Fresa",
-    image: "1_Fresa",
+    image: "1_Fresa.png",
   },
 ];
 
@@ -28,7 +28,7 @@ function Productos() {
       <div className="row">
         {productos.map((producto) => (
           <div className="col-md-4" key={productos.id}>
-            <Producto title={producto.title} imageSource={producto.image} />
+            <Producto title={productos.title} imageSource={productos.image} />
           </div>
         ))}
       </div>
