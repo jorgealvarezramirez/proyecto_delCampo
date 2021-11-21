@@ -95,6 +95,7 @@ header .cart span {
   grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
   gap: 3rem 0.7rem;
   box-sizing: border-box;
+
 }
 
 .producto {
@@ -102,7 +103,7 @@ header .cart span {
   width: 100%;
   flex-direction: columns;
   align-items: center;
-  box-shadow: 1px 10px 10px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 10px 10px 2px rgba(0, 0, 0, 0.5);
   border: 6px solid transparent;
   border: radius 5px;
 }
