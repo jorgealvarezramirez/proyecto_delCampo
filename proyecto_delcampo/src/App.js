@@ -1,21 +1,21 @@
-
 import './App.css';
 //Import bootstrap components
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './Components/Login';
-import Footer from './Components/Footter';
-
+import { useContext } from 'react';
+import AuthContext from './context/AuthContext';
+import AuthRouter from './routers/AuthRouter';
+import UnauthRouter from './routers/UnauthRouter';
 
 
 function App() {
+
+  const {auth} = useContext(AuthContext);
+
   return (
     <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <Login />
-        {/* <Footer/> */}
-        <br />
-      </header>
+      
+      {auth? <AuthRouter/>: <UnauthRouter/>}
+
     </div>
   );
 }

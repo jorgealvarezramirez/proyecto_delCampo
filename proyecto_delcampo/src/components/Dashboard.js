@@ -7,21 +7,18 @@ import { useContext } from 'react';
 import AuthContext from '../context/AuthContext';
 import logo from '../Img/logo_delcampo_b.svg';
 
-const Footter = () => {
+const Dashboard = () => {
 
     let {signOut} = useContext(AuthContext);
 
 
     return (
         <>
-            <Navbar variant="dark">
+            <Navbar bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">
-                        <img src={logo} className="App-logo"/>
-                        <h6>Todos los derechos reservados ©2021</h6>
-                    </Navbar.Brand>
+                <Navbar.Brand href="#home"><img src={logo} className="App-logo"/></Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link onClick={signOut}>PQRS</Nav.Link>
+                        <Nav.Link onClick={signOut}>Salir</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
@@ -31,4 +28,4 @@ const Footter = () => {
     )
 }
 
-export default Footter;
+export default Dashboard;
