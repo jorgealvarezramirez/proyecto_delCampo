@@ -1,19 +1,20 @@
 import React from "react";
 import Header from "./Components/Header/Header";
-// import ProductsList from "./Components/Products/ProductsList";
 import "boxicons";
 import { BrowserRouter as Route } from "react-router-dom";
-
 import Pages from "./Components/Pages";
+import { DataProvider } from "./Context/DataProvider";
 
 function App() {
   return (
-    <div className="App">
-      <Route>
-        <Header />
-        <Pages/>
-      </Route>
-    </div>
+    <DataProvider>
+      <div className="App">
+        <Route>
+          <Header />
+          <Pages />
+        </Route>
+      </div>
+    </DataProvider>
   );
 }
 

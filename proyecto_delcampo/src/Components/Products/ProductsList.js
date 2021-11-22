@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Banano from "../../assets/productos/Banano.png";
+import { DataContext } from "../../Context/DataProvider";
 
 const ProductsList = () => {
+  const value = useContext(DataContext);
+  const [products] = value.products;
+
+  console.log(products);
+
   return (
     <>
       <h2 className="title">PRODUCTOS</h2>
