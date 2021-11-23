@@ -1,5 +1,5 @@
 import React from "react";
-import Banano from "../../assets/productos/Banano.png";
+// import Banano from "../../assets/productos/Banano.png";
 import ProductsList from "./ProductsList";
 
 const ProductItem = ({id, title, price, image, category}) => {
