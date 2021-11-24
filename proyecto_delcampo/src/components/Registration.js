@@ -1,7 +1,6 @@
 import './Footer.css';
 import Form from 'react-bootstrap/Form'
 import InputGroup from 'react-bootstrap/InputGroup'
-import FloatingLabel from 'react-bootstrap/FloatingLabel'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
 import { useContext, useState } from 'react'
@@ -25,6 +24,30 @@ const Registration = () => {
     const [address, setAddress] = useState("");
 
 
+    const handleName = (e)=>{
+        setName(e.target.value);
+    }
+
+    const handleLastname = (e)=>{
+        setLastname(e.target.value);
+    }
+
+    const handleNicknames = (e)=>{
+        setNicknames(e.target.value);
+    }
+
+    const handleId = (e)=>{
+        setId(e.target.value);
+    }
+
+    const handleTel = (e)=>{
+        setTel(e.target.value);
+    }
+
+    const handleAddress = (e)=>{
+        setAddress(e.target.value);
+    }
+
     const handleUser = (e)=>{
         setUser(e.target.value);
     }
@@ -35,6 +58,10 @@ const Registration = () => {
 
     const handleLogin = ()=>{
         handleAuth(user, password);
+    }
+
+    const handleRegistration = ()=>{
+        handleAuth(name, lastName, nickNames, id, tel, address, user, password);
     }
 
     return (
@@ -50,39 +77,46 @@ const Registration = () => {
                     <br/>
                     <h2>Registro</h2>
                     <br/>
-                    <InputGroup className="mb-3" controlId="formName">
-                        <FormControl value={name} name="name" type="text" placeholder="Nombre"onChange={handleUser} aria-label="Nombre" />
-                    </InputGroup>
+                    <div className="mb-3">
+                        <div>
+                        <InputGroup className="mb-3" controlId="formName">
+                            <FormControl value={name} name="name" type="text" placeholder="Nombre"onChange={handleName} aria-label="Nombre" />
+                        </InputGroup>
 
-                    <InputGroup className="mb-3" controlId="formLastName">
-                        <FormControl value={lastName} name="lastName" type="text" placeholder="Apellido"onChange={handleUser} aria-label="Apellido" />
-                    </InputGroup>
+                        <InputGroup className="mb-3" controlId="formLastName">
+                            <FormControl value={lastName} name="lastName" type="text" placeholder="Apellido"onChange={handleLastname} aria-label="Apellido" />
+                        </InputGroup>
+                    </div>
 
+                    
                     <InputGroup className="mb-3" controlId="formNickName">
-                        <FormControl value={nickNames} name="nickName" type="text" placeholder="Apodo"onChange={handleUser} aria-label="Apodo" />
+                        <FormControl value={nickNames} name="nickName" type="text" placeholder="Apodo"onChange={handleNicknames} aria-label="Apodo" />
                     </InputGroup>
 
-                    <FloatingLabel controlId="floatingSelect" label="Works with selects">
+                    <div>
                         <Form.Select >
                             <option>Tipo de documento</option>
                             <option value="1">Cédula de ciudadanía</option>
                             <option value="2">Cédula de extrangería</option>
                             <option value="3">Pasaporte</option>
                         </Form.Select>
-                    </FloatingLabel>
 
-                    <InputGroup className="mb-3" controlId="formId">
-                        <FormControl value={id} name="id" type="Id" placeholder="Número de identificación"onChange={handleUser} aria-label="Id" />
-                    </InputGroup>
+                        <InputGroup className="mb-3" controlId="formId">
+                            <FormControl value={id} name="id" type="Id" placeholder="Número de identificación"onChange={handleId} aria-label="Id" />
+                        </InputGroup>
+                    </div>
 
-                    <InputGroup className="mb-3" controlId="formTel">
-                        <FormControl value={tel} name="tel" type="tel" placeholder="Número de teléfono"onChange={handleUser} aria-label="Tel" />
-                    </InputGroup>
+                    <div>
+                        <InputGroup className="mb-3" controlId="formTel">
+                            <FormControl value={tel} name="tel" type="tel" placeholder="Número de teléfono"onChange={handleTel} aria-label="Tel" />
+                        </InputGroup>
 
-                    <InputGroup className="mb-3" controlId="formAdress">
-                        <FormControl value={address} name="Adress" type="Adress" placeholder="Dirección"onChange={handleUser} aria-label="Dirección" />
-                    </InputGroup>
+                        <InputGroup className="mb-3" controlId="formAdress">
+                            <FormControl value={address} name="Adress" type="Adress" placeholder="Dirección"onChange={handleAddress} aria-label="Dirección" />
+                        </InputGroup>
+                    </div>
 
+                    <div>
                     <InputGroup className="mb-3" controlId="formEmail">
                         <FormControl value={user} name="email" type="email" placeholder="Correo electrónico"onChange={handleUser} aria-label="Correo" />
                     </InputGroup>
@@ -90,6 +124,8 @@ const Registration = () => {
                     <InputGroup className="mb-3" controlId="formPassword">
                         <FormControl value={password} name="password" type="password" placeholder="Contraseña" onChange={handlePassword} type="password" aria-label="password"/>
                     </InputGroup>
+                    </div>
+                </div>
 
                     {/* <Form.Group className="mb-3" controlId="formCheckbox">
                         <Form.Check type="checkbox" label="Mostrar contraseña" />
@@ -97,7 +133,7 @@ const Registration = () => {
                     <Button variant="light" type="submit" onClick={handleLogin}>
                         Iniciar sesión
                     </Button>
-                    <Button variant="succes" type="submit" onClick={handleLogin} >
+                    <Button variant="succes" type="submit" onClick={handleRegistration} >
                         Regístrate
                     </Button>
                     <br/>

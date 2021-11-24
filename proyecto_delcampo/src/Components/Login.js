@@ -31,7 +31,7 @@ const Login = () => {
     }
 
     const handleRegistration = ()=>{
-        let {registration} = Registration;
+        handleAuth();
     }
 
     return (
@@ -70,6 +70,7 @@ const Login = () => {
                     <br/>
                 </Form>
             </header>
+            <Registration/>
 
             <Footter/>
         </>

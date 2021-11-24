@@ -15,6 +15,12 @@
 
 .Form{
   width: 1200px !important;
+  margin: 50px !important;
+}
+
+.FormControl{
+  display: flex !important;
+  margin: 50px !important;
 }
 
 .App-header {
