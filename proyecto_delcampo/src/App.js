@@ -6,6 +6,10 @@ import AuthContext from './context/AuthContext';
 import AuthRouter from './routers/AuthRouter';
 import UnauthRouter from './routers/UnauthRouter';
 
+import React from "react";
+import Header from "./Components/Header/Header";
+import ProductsList from "./Components/Products/ProductsList";
+import "boxicons";
 
 function App() {
 
@@ -16,6 +20,8 @@ function App() {
       
       {auth? <AuthRouter/>: <UnauthRouter/>}
 
+      <Header />
+      <ProductsList />
     </div>
   );
 }
