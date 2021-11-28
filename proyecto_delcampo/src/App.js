@@ -10,25 +10,31 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import Login from './components/Login'
 
+import { useContext } from 'react';
+import './App.css';
+import AuthContext from './context/AuthContext';
+import AuthRouter from './routers/AuthRouter';
+import UnauthRouter from './routers/UnauthRouter';
 
 function App() {
+  const { auth } = useContext(AuthContext);
   return (
 
     <Router>
       <>
         <Home />
       </>
-      {/*          <Route path="/barra"></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/" element={<Home autorizado={false} />}></Route> */}
 
-    </Router >
+    </Router>
     /*
         <div className="App">
           <header className="App-header">
 
           </header>
         </div> */
+    // <div className="App">
+    //   {auth ? <AuthRouter/> : <UnauthRouter/>}
+    // </div>
   );
 }
 

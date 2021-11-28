@@ -1,0 +1,19 @@
+.pie-pag {
+    height: 60px;
+    background-color: #586934;
+    align-content: center;
+    max-width: 100% !important;
+}
+.reservados {
+    font-weight: 100 !important;
+    color: #FFF;
+}
+.pqrs {
+    font-size: 20pt;
+    font-weight: bold;
+    color: #FFF;
+    text-align: center;
+}
+.logo{
+    width: 150px;
+}
