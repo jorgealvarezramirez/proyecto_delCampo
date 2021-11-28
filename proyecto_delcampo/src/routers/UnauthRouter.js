@@ -1,19 +1,16 @@
-import { Route, Routes } from "react-router";
-import Login from "../components/Login";
-import NotFound from "../components/NotFound";
-import Registration from "../components/Registration";
+import React from 'react'
+import { Route, Routes } from 'react-router';
+import Auth from '../Pages/public/Auth';
+import Home from '../Pages/public/Home';
 
-const UnauthRouter = () => {
+const Unauthrouter = () => {
     return (
-        <>
-            <Routes>
-                <Route path="/" element={<Login/>}/>
-                <Route path="/" element={<Registration/>}/>
-                <Route path="*" element={<NotFound/>}/>
-            </Routes>
-        </>
+        <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/auth" element={<Auth/>}/>
+        </Routes>
     )
 }
 
-export default UnauthRouter;
+export default Unauthrouter;
 

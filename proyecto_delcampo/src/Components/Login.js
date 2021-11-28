@@ -1,80 +1,69 @@
-import './Footer.css';
-import Form from 'react-bootstrap/Form'
-import InputGroup from 'react-bootstrap/InputGroup'
-import FormControl from 'react-bootstrap/FormControl'
-import Button from 'react-bootstrap/Button'
-import { useContext, useState } from 'react'
-import logo from '../logo.svg';
-import AuthContext from '../context/AuthContext'
-import Footter from './Footter';
-import Top_bar from './Top_bar';
-import Registration from './Registration';
+import React, { useContext, useState } from "react";
+import {Form, Button} from "react-bootstrap";
+import { useNavigate } from "react-router";
+import AuthContext from "../context/AuthContext";
+import logo from "../logo.svg";
 
-
-const Login = () => {
-    //Usar el context
-    const {handleAuth} = useContext(AuthContext);
-    //Usar el hook useState para los estados del componente
-    const [user, setUser] = useState("");
-    const [password, setPassword] = useState("");
-
-    const handleUser = (e)=>{
-        setUser(e.target.value);
-    }
-
-    const handlePassword = (e)=>{
-        setPassword(e.target.value);
-    }
-
-    const handleLogin = ()=>{
-        handleAuth(user, password);
-    }
-
-    const handleRegistration = ()=>{
-        handleAuth();
-    }
-
-    return (
-        <>
-        <Top_bar/>
-            <header className="App-header">
-                <Form>
-                    
-                    <br/>
-                    <br/>
-                    <img src={logo} className="App-logo"/>
-                    <br/>
-                    <br/>
-                    <h2>Iniciar sesión</h2>
-                    <br/>
-                    <InputGroup className="mb-3" controlId="formEmail">
-                        <FormControl value={user} name="user" type="email" placeholder="Email"onChange={handleUser} aria-label="email" />
-                    </InputGroup>
-
-                    <InputGroup className="mb-3" controlId="formPassword">
-                        <FormControl value={password} name="password" type="password" placeholder="Contraseña" onChange={handlePassword} type="password" aria-label="password"/>
-                    </InputGroup>
-                    {/* <Form.Group className="mb-3" controlId="formCheckbox">
-                        <Form.Check type="checkbox" label="Mostrar contraseña" />
-                    </Form.Group> */}
-                    <Button variant="light" type="submit" onClick={handleRegistration} >
-                        Regístrate
-                    </Button>
-                    <Button variant="success" type="submit" onClick={handleLogin}>
-                        Iniciar sesión
-                    </Button>
-                    
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                </Form>
-            </header>
-            <Registration/>
-
-            <Footter/>
-        </>
-    )
+const objForm = {
+  email: "",
+  password: ""
 }
 
-export default Login
+const Login = () => {
+  //Contexto
+  const {handleLogin} = useContext(AuthContext);
+  //Estados
+  const [form, setForm] = useState(objForm);
+  //Navegador
+  const navigate = useNavigate();
+
+
+  const handleForm = (e)=>{
+    setForm( {...form, [e.target.name]: e.target.value} );
+  }
+
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    handleLogin(form).then(async (resp)=>{
+      if(resp.status === 200){
+        let json = await resp.json();
+        let token = json.token;
+        localStorage.setItem('token', token);
+        navigate('/');
+      }else{
+        alert('Invalid credentials');
+      }
+    }).catch(error=>{
+      console.log(error);
+    });
+  }
+
+  return (
+    <div className="login">
+        <br/>
+        <img className="logo" src={logo}/>
+        <br/>
+        <br/>
+        <br/>
+      <h3>Iniciar Sesión</h3>
+      <br/>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="loginEmail">
+          <Form.Control required value={form.email} onChange={handleForm} name="email" type="email" placeholder="Correo electrónico" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="loginPassword">
+          <Form.Control required value={form.password} onChange={handleForm} name="password" type="password" placeholder="Contraseña" />
+        </Form.Group>
+        <Button variant="light" type="submit" className="BotonS">
+          Registrarme
+        </Button>
+        <Button variant="primary" type="submit" className="Boton">
+          Iniciar Sesión
+        </Button>
+      </Form>
+    </div>
+  );
+};
+
+export default Login;

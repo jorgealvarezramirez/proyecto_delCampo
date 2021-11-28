@@ -1,20 +1,17 @@
-import { Route, Routes } from "react-router"
-import Dashboard from "../components/Dashboard"
-import NotFound from "../components/NotFound";
+import React from 'react'
+import { Route, Routes } from 'react-router';
+import Catalogue from '../components/Catalogue';
+import Product from '../components/Product';
+import Dashboard from '../Pages/private/Dashboard';
 
 const AuthRouter = () => {
     return (
-        <>
-            <Routes>
-                <Route path="/" element={<Dashboard />}>       
-                    <Route path="*" element={<NotFound/>}/>         
-                </Route>
-                {/*-------Aqui mis otras rutas y de último el not found
-                <Route path="*" element={<NotFound/>}/>
-                -------*/}
-
-            </Routes>
-        </>
+       <Routes>
+           <Route path="/" element={<Dashboard/>}>
+               <Route index element={<Product/>}/>
+               <Route path="catalogue" element={<Catalogue/>}/>
+           </Route>
+       </Routes>
     )
 }
 

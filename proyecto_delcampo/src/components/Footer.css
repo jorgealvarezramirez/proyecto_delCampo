@@ -2,6 +2,7 @@
     height: 60px;
     background-color: #586934;
     align-content: center;
+    max-width: 100% !important;
 }
 .reservados {
     font-weight: 100 !important;

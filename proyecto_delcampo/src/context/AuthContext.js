@@ -1,29 +1,65 @@
-const { createContext, useState } = require("react");
+import { createContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router";
+import { apiLogin, apiRegister } from "./Api";
 
 //Crear contexto
 const AuthContext = createContext();
 
-//Crear el proveedor del contexto
+//Crear proveedor para el contexto
 const AuthProvider = ({children})=>{
+    //Estados
     const [auth, setAuth] = useState(false);
+    const navigate = useNavigate();
 
-    const handleAuth = (user, password)=>{
-        console.log("Llamando a handleAuth de AuthContext...");
-        if(user === "admin@admin.com" && password === "123456"){
+    useEffect(()=>{
+        let token = localStorage.getItem('token');
+        if(token){
             setAuth(true);
-        }else{
-            alert('Acceso denegado');
-        }        
+        }
+    }, []);
+
+    const handleRegister = (objUser)=>{
+        //Realizar petición al servidor para registrar un usuario
+        fetch(apiRegister, {
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(objUser)
+        }).then(async(resp)=>{   
+            if(resp.status === 201){
+                let json = await resp.json();
+                let token = json.token;
+                console.log(token);
+                localStorage.setItem('token', token);                
+                setAuth(true);
+                navigate('/');
+            }else{
+                alert("Credentials invalid");
+            }       
+            
+        }).catch(error=>{
+            console.log(error);
+        })
     }
 
-    const signOut = ()=>{
-        setAuth(false);
+    const handleLogin = async (objUser)=>{
+        let resp = await fetch(apiLogin, {
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(objUser)
+        });
+        if(resp.status === 200){
+            setAuth(true);
+        }
+        return resp;
     }
 
-    const data = {auth, handleAuth, signOut};
+    const data = {handleRegister, handleLogin, auth};
 
     return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>
-
 }
 
 export {AuthProvider};
