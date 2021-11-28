@@ -7,7 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Banner from './components/Banner';
 import Barra from './components/Barra';
 import Home from './components/Home';
-import Footer from './components/Footer'
+import Footer from './components/Footer';
+import Login from './components/Login'
 
 
 function App() {
@@ -15,20 +16,13 @@ function App() {
 
     <Router>
       <>
-        <Banner />
-        <br />
-        <Barra />
-        <br />
         <Home />
-        <br />
-        <Footer />
-
       </>
       {/*          <Route path="/barra"></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/" element={<Home autorizado={false} />}></Route> */}
 
-    </Router>
+    </Router >
     /*
         <div className="App">
           <header className="App-header">

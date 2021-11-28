@@ -15,7 +15,7 @@ export default function banner() {
                     {/* <ProgressBar variant="success" now={40} /> */}
                     <Nav.Item>
                         <ButtonGroup aria-label="Basic example">
-                            <Button variant="outline-success">Inicio de Sesion</Button>
+                            <Button variant="outline-success" navigate="Login">Inicio de Sesion</Button>
                             <Button variant="outline-success">Registro</Button>
                         </ButtonGroup>
                     </Nav.Item>

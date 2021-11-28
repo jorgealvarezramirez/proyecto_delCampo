@@ -7,7 +7,7 @@ export default function Footer() {
 
         <div class="row pie-pag">
             <div class="col-lg-6 pqrs">
-                <img src={LogoCampo2} align="left" width="75%" height="50%" />
+                <img src={LogoCampo2} width="25%" height="25%" />
             </div>
             <div class="col-lg-8 reservados">
                 © Todos los derechos reservados 2021

@@ -8,7 +8,7 @@ export default function barra() {
         <>
             <Navbar variant="light" bg="success" expand="md">
                 <Container fluid>
-                    <Navbar.Brand href="#">De´lCampo</Navbar.Brand>
+
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
