@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Login from './components/Login';
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,6 +13,7 @@ ReactDOM.render(
     <BrowserRouter>
       <AuthProvider>
         <App />
+        <Login />
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,

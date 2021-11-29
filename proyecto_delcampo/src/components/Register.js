@@ -6,16 +6,16 @@ import logo from "../logo.svg"
 
 const Register = () => {
   //Crear contexto de tipo AuthContext
-  const {handleRegister} = useContext(AuthContext);
+  const { handleRegister } = useContext(AuthContext);
 
   const objForm = {
     name: "",
     lastname: "",
     nickname: "",
-    kindId:"",
-    id:"",
-    tel:"",
-    address:"",
+    kindId: "",
+    id: "",
+    tel: "",
+    address: "",
     email: "",
     password: "",
   };
@@ -35,13 +35,13 @@ const Register = () => {
 
   return (
     <div className="register">
-      <br/>
-        <img className="logo" src={logo}/>
-        <br/>
-        <br/>
-        <br/>
+      <br />
+      <img className="logo" src={logo} />
+      <br />
+      <br />
+      <br />
       <h2>Regístrate</h2>
-      <br/>
+      <br />
       {/**Formulario de registro**/}
       <Form onSubmit={handleSubmit}>
         <Row>

@@ -9,7 +9,7 @@ import logo from '../Img/logo_delcampo_b.svg';
 
 const Footter = () => {
 
-    let {signOut} = useContext(AuthContext);
+    let { signOut } = useContext(AuthContext);
 
 
     return (
@@ -17,7 +17,7 @@ const Footter = () => {
             <Navbar variant="dark">
                 <Container>
                     <Navbar.Brand href="#home">
-                        <img src={logo} className="App-logo"/>
+                        <img src={logo} className="App-logo" />
                         <h6>Todos los derechos reservados ©2021</h6>
                     </Navbar.Brand>
                     <Nav className="me-auto">
@@ -25,8 +25,8 @@ const Footter = () => {
                     </Nav>
                 </Container>
             </Navbar>
-            
-            <Outlet/>
+
+            <Outlet />
         </>
     )
 }

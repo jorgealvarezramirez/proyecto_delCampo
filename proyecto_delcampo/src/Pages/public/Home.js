@@ -1,17 +1,20 @@
 import React from 'react'
-import Register from '../../components/Register';
-import Login from '../../components/Login';
-import Footter from '../../components/Footter';
+import Banner from '../../components/Banner'
+import Barra from '../../components/Barra'
+import Categoria from '../../components/Categoria'
+import Footer from '../../components/Footer'
 
-const Home = () => {
+export default function home() {
+
     return (
-        <div>
-            <h2>Home</h2>
-            <Login/>
-            <Register/>
-            <Footter/>
-        </div>
+        <>
+            <Banner />
+            <br />
+            <Barra />
+            <br />
+            <Categoria />
+            <br />
+            <Footer />
+        </>
     )
 }
-
-export default Home
