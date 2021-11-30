@@ -90,7 +90,7 @@ export default function Categoria() {
                             <Button variant="outline-success">
                                 <Card.Img bg='Success' variant="top" src={carnes} />
                                 <Card.Body>
-                                    <Card.Title>Carne / Pollo</Card.Title>
+                                    <Card.Title>Carne/Pollo</Card.Title>
                                 </Card.Body>
                             </Button>
                         </Card>

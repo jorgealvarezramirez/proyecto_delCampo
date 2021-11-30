@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom'
 const Ban = () => {
 
     let { login } = useContext(AuthContext);
+    let { register } = useContext(AuthContext);
 
     return (
         <>
@@ -24,7 +25,7 @@ const Ban = () => {
                             <Link to="/Login.js">
                                 <Button variant="outline-success" onClick={login}>Inicio de Sesion</Button>
                             </Link>
-                            <Button variant="outline-success">Registro</Button>
+                            <Button variant="outline-success" onClick={register}>Registro</Button>
                         </ButtonGroup>
                     </Nav.Item>
 
